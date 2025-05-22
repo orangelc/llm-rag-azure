@@ -15,7 +15,8 @@ def get_qa_chain(config):
         config["PINECONE_API_KEY"],
         config["PINECONE_ENVIRONMENT"],
         config["PINECONE_INDEX_NAME"],
-        embeddings
+        embeddings,
+        config["PINECONE_NAMESPACE"]
     )
 
     retriever = vectorstore.as_retriever()
