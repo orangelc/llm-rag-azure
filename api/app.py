@@ -9,6 +9,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
+logger = logging.getLogger("uvicorn.error")
+
+
 config = load_env()
 qa_chain = get_qa_chain(config)
 
