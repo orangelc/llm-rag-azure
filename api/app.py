@@ -10,6 +10,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
+config = load_env()
 logger = logging.getLogger("uvicorn.error")
 
 REQUIRED_ENV_VARS = [
@@ -28,8 +29,6 @@ def check_env_vars():
             detail=f"Faltan variables de entorno: {', '.join(missing)}"
         )
 
-
-config = load_env()
 qa_chain = get_qa_chain(config)
 
 @app.get("/ask")
