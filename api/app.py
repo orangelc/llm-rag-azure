@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import JSONResponse
 from utils.env_loader import load_env
 from chains.qa_chain import get_qa_chain
+import os
 import logging
 
 # Configurar logging
