@@ -6,7 +6,7 @@ from langchain.schema import BaseRetriever
 
 
 
-def get_qa_chain(config):
+async def get_qa_chain(config):
     
     llm = get_chat_model(config["OPENAI_API_KEY"])
     embeddings = get_embeddings(config["OPENAI_API_KEY"])

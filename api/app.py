@@ -32,11 +32,11 @@ def check_env_vars():
 qa_chain = get_qa_chain(config)
 
 @app.get("/ask")
-def ask(q: str = Query(..., description="Pregunta para el LLM")):
+async def ask(q: str = Query(..., description="Pregunta para el LLM")):
     try:
         check_env_vars()
         logger.info(f"Consulta recibida: {q}")
-        result = qa_chain.invoke(q)
+        result = await qa_chain.ainvoke(q)
 
         return {
             "respuesta": result
